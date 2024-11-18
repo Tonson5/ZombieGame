@@ -25,6 +25,6 @@ public class PlayerGun : MonoBehaviour
     {
         GameObject shot = Instantiate(bullet,bulletSpawn.transform.position,bulletSpawn.transform.rotation);
         shot.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * bulletVelocity,ForceMode.Impulse);
-        Destroy(shot.gameObject, 1);
+        Destroy(shot.gameObject, 0.5f);
     }
 }
