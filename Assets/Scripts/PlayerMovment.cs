@@ -14,19 +14,20 @@ public class PlayerMovment : MonoBehaviour
 
     void Update()
     {
-        RotatePlayer();
     }
     private void FixedUpdate()
     {
         MovePlayer();
+        RotatePlayer();
     }
     public void RotatePlayer()
     {
-        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * Input.GetAxisRaw("Horizontal"));
+        rb.AddTorque(Vector3.up * turnSpeed * Input.GetAxisRaw("Horizontal"));
     }
 
     public void MovePlayer()
     {
         rb.AddRelativeForce(Vector3.forward * moveSpeed * Input.GetAxisRaw("Vertical"));
+        
     }
 }
