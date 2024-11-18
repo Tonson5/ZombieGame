@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerMovment : MonoBehaviour
+{
+    [SerializeField] float turnSpeed;
+    [SerializeField] float moveSpeed;
+    [SerializeField] Rigidbody rb;
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();  
+    }
+
+    void Update()
+    {
+        RotatePlayer();
+    }
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+    public void RotatePlayer()
+    {
+        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * Input.GetAxisRaw("Horizontal"));
+    }
+
+    public void MovePlayer()
+    {
+        rb.AddRelativeForce(Vector3.forward * moveSpeed * Input.GetAxisRaw("Vertical"));
+    }
+}
