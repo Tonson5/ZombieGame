@@ -13,7 +13,7 @@ public class AsteroidMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         transform.rotation = new Quaternion(0, Random.Range(0, 360),0,0);
         rb.AddForce(new Vector3(Random.Range(-maxSpeed, maxSpeed), 0, Random.Range(-maxSpeed, maxSpeed)),ForceMode.Impulse);
-        rb.AddTorque(Vector3.up * Random.Range(0, 30),ForceMode.Impulse);
+        rb.AddTorque(Vector3.up * Random.Range(0, 2),ForceMode.Impulse);
     }
 
     // Update is called once per frame
