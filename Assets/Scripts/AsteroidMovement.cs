@@ -6,6 +6,8 @@ public class AsteroidMovement : MonoBehaviour
 {
     private Rigidbody rb;
     [SerializeField] float maxSpeed;
+    public int size;
+    public GameObject asteroid;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -17,15 +19,24 @@ public class AsteroidMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.localScale = new Vector3(size,size,size);
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(collision.gameObject);
-            Destroy(gameObject);
-            
+            if (size == 1)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instantiate(asteroid, transform.position, transform.rotation).GetComponent<AsteroidMovement>().size = size - 1;
+                Instantiate(asteroid, transform.position, transform.rotation).GetComponent<AsteroidMovement>().size = size - 1;
+                Destroy(gameObject);
+            }
+
         }
     }
 }
