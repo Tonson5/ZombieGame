@@ -38,5 +38,9 @@ public class AsteroidMovement : MonoBehaviour
             }
 
         }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
