@@ -17,7 +17,7 @@ public class AsteroidMovement : MonoBehaviour
         rb.AddTorque(Vector3.up * Random.Range(0, 2),ForceMode.Impulse);
         rb.AddTorque(Vector3.right * Random.Range(0, 2),ForceMode.Impulse);
         rb.AddTorque(Vector3.forward * Random.Range(0, 2),ForceMode.Impulse);
-        score = GameObject.Find("score holder");
+        score = GameObject.Find("ui holder");
     }
 
     // Update is called once per frame
@@ -45,7 +45,15 @@ public class AsteroidMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            if (score.GetComponent<Score>().playerLives == 0)
+            {
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                score.GetComponent<Score>().playerLives -= 1;
+                Destroy(gameObject);
+            }
         }
     }
 }

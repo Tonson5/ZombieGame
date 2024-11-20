@@ -8,6 +8,8 @@ public class Score : MonoBehaviour
     public TextMeshPro score;
     public GameObject player;
     public int scoreHolder;
+    public int playerLives;
+    public GameObject[] liveHolder;
     void Start()
     {
         
@@ -22,6 +24,18 @@ public class Score : MonoBehaviour
         }
         transform.position = player.transform.position;
         score.text = "Score: " + scoreHolder;
-        
+        if (playerLives == 2 && liveHolder[2] != null)
+        {
+            Destroy(liveHolder[2]);
+        }
+        else if(playerLives == 1 && liveHolder[1] != null)
+        {
+            Destroy(liveHolder[1]);
+        }
+        else if(playerLives == 0 && liveHolder[0] != null)
+        {
+            Destroy(liveHolder[0]);
+        }
+
     }
 }
