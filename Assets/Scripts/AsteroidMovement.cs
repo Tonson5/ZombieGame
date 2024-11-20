@@ -8,6 +8,7 @@ public class AsteroidMovement : MonoBehaviour
     [SerializeField] float maxSpeed;
     public int size;
     public GameObject asteroid;
+    public GameObject score;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -16,6 +17,7 @@ public class AsteroidMovement : MonoBehaviour
         rb.AddTorque(Vector3.up * Random.Range(0, 2),ForceMode.Impulse);
         rb.AddTorque(Vector3.right * Random.Range(0, 2),ForceMode.Impulse);
         rb.AddTorque(Vector3.forward * Random.Range(0, 2),ForceMode.Impulse);
+        score = GameObject.Find("score holder");
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class AsteroidMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            score.GetComponent<Score>().scoreHolder += 50;
             Destroy(collision.gameObject);
             if (size == 1)
             {
@@ -38,7 +41,7 @@ public class AsteroidMovement : MonoBehaviour
                 Instantiate(asteroid, transform.position, transform.rotation).GetComponent<AsteroidMovement>().size = size - 1;
                 Destroy(gameObject);
             }
-
+            
         }
         if (collision.gameObject.CompareTag("Player"))
         {

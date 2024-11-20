@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b1ee0b69968d5419e2dea0b4f01d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 3
+  maxSpeed: 2
   size: 2
   asteroid: {fileID: 1063780279701267028}
 --- !u!1001 &5686222124218117045
