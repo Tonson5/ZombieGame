@@ -31,8 +31,11 @@ public class PlayerMovment : MonoBehaviour
 
     public void MovePlayer()
     {
-        rb.AddRelativeForce(Vector3.forward * moveSpeed * Input.GetAxisRaw("Vertical"));
-        if (Input.GetAxisRaw("Vertical") != 0)
+        if (Input.GetKey(KeyCode.W))
+        {
+            rb.AddRelativeForce(Vector3.forward * moveSpeed * Input.GetAxisRaw("Vertical"));
+        }
+        if (Input.GetAxisRaw("Vertical") > 0)
         {
             thrust.SetActive(true);
             audioScource.SetActive(true);
@@ -42,7 +45,6 @@ public class PlayerMovment : MonoBehaviour
             thrust.SetActive(false);
             audioScource.SetActive(false);
         }
-        
     }
     private void OnDestroy()
     {
