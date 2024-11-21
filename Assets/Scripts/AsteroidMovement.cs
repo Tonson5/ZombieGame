@@ -9,6 +9,8 @@ public class AsteroidMovement : MonoBehaviour
     public int size;
     public GameObject asteroid;
     public GameObject score;
+    public GameObject particle;
+    public GameObject hitParticle;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,6 +31,7 @@ public class AsteroidMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            Instantiate(particle, transform.position, transform.rotation);
             score.GetComponent<Score>().scoreHolder += 50;
             Destroy(collision.gameObject);
             if (size == 1)
@@ -45,6 +48,7 @@ public class AsteroidMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Player"))
         {
+            Instantiate(hitParticle, transform.position, transform.rotation);
             if (score.GetComponent<Score>().playerLives == 0)
             {
                 Destroy(collision.gameObject);

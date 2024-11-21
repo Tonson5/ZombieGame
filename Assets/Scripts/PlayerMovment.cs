@@ -7,6 +7,7 @@ public class PlayerMovment : MonoBehaviour
     [SerializeField] float turnSpeed;
     [SerializeField] float moveSpeed;
     [SerializeField] Rigidbody rb;
+    [SerializeField] GameObject restartButton;
     void Start()
     {
         rb = GetComponent<Rigidbody>();  
@@ -29,5 +30,9 @@ public class PlayerMovment : MonoBehaviour
     {
         rb.AddRelativeForce(Vector3.forward * moveSpeed * Input.GetAxisRaw("Vertical"));
         
+    }
+    private void OnDestroy()
+    {
+        restartButton.SetActive(true);
     }
 }

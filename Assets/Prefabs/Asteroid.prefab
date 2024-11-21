@@ -150,6 +150,11 @@ MonoBehaviour:
   maxSpeed: 2
   size: 2
   asteroid: {fileID: 1063780279701267028}
+  score: {fileID: 0}
+  particle: {fileID: 7751970220001246256, guid: 3de8f9bf6be1e8d4882ec8033344e9a1,
+    type: 3}
+  hitParticle: {fileID: 5212427765766309112, guid: 05cb2bef29f0fa343b3b9e10d7302315,
+    type: 3}
 --- !u!1001 &5686222124218117045
 PrefabInstance:
   m_ObjectHideFlags: 0
