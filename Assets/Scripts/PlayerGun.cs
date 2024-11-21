@@ -7,6 +7,8 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject bulletSpawn;
     [SerializeField] float bulletVelocity;
+    [SerializeField] GameObject audioScource;
+    [SerializeField] AudioClip shoot;
     void Start()
     {
         
@@ -18,6 +20,7 @@ public class PlayerGun : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
+            audioScource.GetComponent<AudioSource>().PlayOneShot(shoot);
         }
     }
 

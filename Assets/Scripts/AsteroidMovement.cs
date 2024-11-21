@@ -11,6 +11,9 @@ public class AsteroidMovement : MonoBehaviour
     public GameObject score;
     public GameObject particle;
     public GameObject hitParticle;
+    [SerializeField] GameObject audioScource;
+    [SerializeField] AudioClip explosion;
+    [SerializeField] AudioClip hitPlayer;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,6 +23,7 @@ public class AsteroidMovement : MonoBehaviour
         rb.AddTorque(Vector3.right * Random.Range(0, 2),ForceMode.Impulse);
         rb.AddTorque(Vector3.forward * Random.Range(0, 2),ForceMode.Impulse);
         score = GameObject.Find("ui holder");
+        audioScource = GameObject.Find("Audio Source");
     }
 
     // Update is called once per frame
@@ -31,6 +35,7 @@ public class AsteroidMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            audioScource.GetComponent<AudioSource>().PlayOneShot(explosion);
             Instantiate(particle, transform.position, transform.rotation);
             score.GetComponent<Score>().scoreHolder += 50;
             Destroy(collision.gameObject);
@@ -48,6 +53,7 @@ public class AsteroidMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Player"))
         {
+            audioScource.GetComponent<AudioSource>().PlayOneShot(hitPlayer);
             Instantiate(hitParticle, transform.position, transform.rotation);
             if (score.GetComponent<Score>().playerLives == 0)
             {

@@ -155,6 +155,9 @@ MonoBehaviour:
     type: 3}
   hitParticle: {fileID: 5212427765766309112, guid: 05cb2bef29f0fa343b3b9e10d7302315,
     type: 3}
+  audioScource: {fileID: 0}
+  explosion: {fileID: 8300000, guid: 9375f3efda9cb7f4e862c41084467b3c, type: 3}
+  hitPlayer: {fileID: 8300000, guid: 5983dc5db224a254b963a688b5add961, type: 3}
 --- !u!1001 &5686222124218117045
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,6 +8,9 @@ public class PlayerMovment : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] Rigidbody rb;
     [SerializeField] GameObject restartButton;
+    [SerializeField] GameObject audioScource;
+    [SerializeField] GameObject thrust;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();  
@@ -29,6 +32,16 @@ public class PlayerMovment : MonoBehaviour
     public void MovePlayer()
     {
         rb.AddRelativeForce(Vector3.forward * moveSpeed * Input.GetAxisRaw("Vertical"));
+        if (Input.GetAxisRaw("Vertical") != 0)
+        {
+            thrust.SetActive(true);
+            audioScource.SetActive(true);
+        }
+        else
+        {
+            thrust.SetActive(false);
+            audioScource.SetActive(false);
+        }
         
     }
     private void OnDestroy()
