@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class AsteroidMovement : MonoBehaviour
 {
     private Rigidbody rb;
@@ -14,8 +14,10 @@ public class AsteroidMovement : MonoBehaviour
     [SerializeField] GameObject audioScource;
     [SerializeField] AudioClip explosion;
     [SerializeField] AudioClip hitPlayer;
+    private CinemachineImpulseSource _impulseScource;
     void Start()
     {
+        _impulseScource = GetComponent<CinemachineImpulseSource>();
         rb = GetComponent<Rigidbody>();
         transform.rotation = new Quaternion(0, Random.Range(0, 360),0,0);
         rb.AddForce(new Vector3(Random.Range(-maxSpeed, maxSpeed), 0, Random.Range(-maxSpeed, maxSpeed)),ForceMode.Impulse);
@@ -35,6 +37,7 @@ public class AsteroidMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            _impulseScource.GenerateImpulse();
             audioScource.GetComponent<AudioSource>().PlayOneShot(explosion);
             Instantiate(particle, transform.position, transform.rotation);
             score.GetComponent<Score>().scoreHolder += 50;
@@ -53,6 +56,7 @@ public class AsteroidMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Player"))
         {
+            _impulseScource.GenerateImpulse();
             audioScource.GetComponent<AudioSource>().PlayOneShot(hitPlayer);
             Instantiate(hitParticle, transform.position, transform.rotation);
             if (score.GetComponent<Score>().playerLives == 0)
