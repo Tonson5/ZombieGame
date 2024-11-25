@@ -30,12 +30,22 @@ public class SettingsFinder : MonoBehaviour
         if (active)
         {
             settings.SetActive(true);
+            Time.timeScale = 0;
         }
         else
         {
             settings.SetActive(false);
+            Time.timeScale = 1;
         }
 
 
+    }
+    public void Activate()
+    {
+        active = true;
+    }
+    public void Deactivate()
+    {
+        active = false;
     }
 }

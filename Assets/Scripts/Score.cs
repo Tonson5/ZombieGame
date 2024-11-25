@@ -22,7 +22,10 @@ public class Score : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        transform.position = player.transform.position;
+        if (player != null)
+        {
+            transform.position = player.transform.position;
+        }
         score.text = "Score: " + scoreHolder;
         if (playerLives == 2 && liveHolder[2] != null)
         {

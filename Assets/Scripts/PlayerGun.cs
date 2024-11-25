@@ -19,7 +19,7 @@ public class PlayerGun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && Time.timeScale == 1)
         {
             Shoot();
             audioScource.GetComponent<AudioSource>().PlayOneShot(shoot);
