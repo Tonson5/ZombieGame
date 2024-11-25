@@ -19,7 +19,7 @@ public class PlayerGun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
             audioScource.GetComponent<AudioSource>().PlayOneShot(shoot);

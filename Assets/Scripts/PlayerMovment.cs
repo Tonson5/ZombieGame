@@ -31,7 +31,7 @@ public class PlayerMovment : MonoBehaviour
 
     public void MovePlayer()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetAxisRaw("Vertical") > 0)
         {
             rb.AddRelativeForce(Vector3.forward * moveSpeed * Input.GetAxisRaw("Vertical"));
         }
