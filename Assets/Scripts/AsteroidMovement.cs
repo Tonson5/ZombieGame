@@ -11,6 +11,7 @@ public class AsteroidMovement : MonoBehaviour
     public GameObject score;
     public GameObject particle;
     public GameObject hitParticle;
+    public GameObject scoreAsteroid;
     [SerializeField] GameObject audioScource;
     [SerializeField] AudioClip explosion;
     [SerializeField] AudioClip hitPlayer;
@@ -40,7 +41,10 @@ public class AsteroidMovement : MonoBehaviour
             _impulseScource.GenerateImpulse();
             audioScource.GetComponent<AudioSource>().PlayOneShot(explosion);
             Instantiate(particle, transform.position, transform.rotation);
-            score.GetComponent<Score>().scoreHolder += 50;
+            for (int i = 0; i < 10; i++)
+            {
+                Instantiate(scoreAsteroid,transform.position,scoreAsteroid.transform.rotation);
+            }
             Destroy(collision.gameObject);
             if (size == 1)
             {

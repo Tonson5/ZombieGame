@@ -128,7 +128,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -155,6 +155,8 @@ MonoBehaviour:
   particle: {fileID: 7751970220001246256, guid: 3de8f9bf6be1e8d4882ec8033344e9a1,
     type: 3}
   hitParticle: {fileID: 5212427765766309112, guid: 05cb2bef29f0fa343b3b9e10d7302315,
+    type: 3}
+  scoreAsteroid: {fileID: 2718023282540068706, guid: c7b7d2374185bd04c8198a398da9bd70,
     type: 3}
   audioScource: {fileID: 0}
   explosion: {fileID: 8300000, guid: 9375f3efda9cb7f4e862c41084467b3c, type: 3}
