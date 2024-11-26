@@ -60,6 +60,7 @@ public class AsteroidMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Player"))
         {
+            GameObject.Find("hurtFlash").GetComponent<HurtFlash>().PlayAnimation();
             _impulseScource.GenerateImpulse();
             audioScource.GetComponent<AudioSource>().PlayOneShot(hitPlayer);
             Instantiate(hitParticle, transform.position, transform.rotation);

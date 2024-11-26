@@ -6,6 +6,7 @@ public class SettingsFinder : MonoBehaviour
 {
     
     public GameObject settings;
+    public GameObject screenShakeSlider;
     public bool active;
     void Start()
     {
