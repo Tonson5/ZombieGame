@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerMovment : MonoBehaviour
 {
-    [SerializeField] float turnSpeed;
-    [SerializeField] float moveSpeed;
+    public float turnSpeed;
+    public float moveSpeed;
     [SerializeField] Rigidbody rb;
     [SerializeField] GameObject restartButton;
     [SerializeField] GameObject audioScource;

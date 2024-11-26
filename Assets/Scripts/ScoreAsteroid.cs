@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreAsteroid : MonoBehaviour
 {
@@ -27,6 +28,12 @@ public class ScoreAsteroid : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            GameObject.Find("xp Bar").GetComponent<Slider>().value += 5;
+            if (GameObject.Find("xp Bar").GetComponent<Slider>().maxValue == GameObject.Find("xp Bar").GetComponent<Slider>().value)
+            {
+                GameObject.Find("xp Bar").GetComponent<Slider>().maxValue *= 2;
+                GameObject.Find("xp Bar").GetComponent<Slider>().value = 0;
+            }
             Instantiate(particle,transform.position,transform.rotation);
             score.GetComponent<Score>().scoreHolder += 5;
             Destroy(gameObject);
