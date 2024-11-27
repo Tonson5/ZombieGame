@@ -28,9 +28,12 @@ public class ScoreAsteroid : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+
             GameObject.Find("xp Bar").GetComponent<Slider>().value += 5;
             if (GameObject.Find("xp Bar").GetComponent<Slider>().maxValue == GameObject.Find("xp Bar").GetComponent<Slider>().value)
             {
+                //Time.timeScale = 0;
+                //GameObject.Find("CardManager").GetComponent<CardManager>().SpawnCards();
                 GameObject.Find("xp Bar").GetComponent<Slider>().maxValue *= 2;
                 GameObject.Find("xp Bar").GetComponent<Slider>().value = 0;
             }

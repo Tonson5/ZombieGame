@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class CardItemRandomizer : MonoBehaviour
 {
     public string[] common;
@@ -17,12 +17,14 @@ public class CardItemRandomizer : MonoBehaviour
     public GameObject player;
     public PlayerMovment playerMoveScript;
     public PlayerGun playerShootScript;
+    public TextMeshProUGUI cardText;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
         playerMoveScript = player.GetComponent<PlayerMovment>();
         playerShootScript = player.GetComponent<PlayerGun>();
+        Randomize();
     }
 
     // Update is called once per frame
@@ -59,5 +61,12 @@ public class CardItemRandomizer : MonoBehaviour
            displayText = legendary[designator];
            skillToChange = legendarySkill[designator];
         }
+        cardText.text = displayText;
+    }
+    public void ButtonPressed()
+    {
+        Time.timeScale = 1;
+        gameObject.SetActive(false);
+        GameObject.Find("CardManager").GetComponent<CardManager>().DeleteCards();
     }
 }

@@ -23,7 +23,14 @@ public class StartGame : MonoBehaviour
                 LoadGame();
             }
         }
-        
+        if (Input.GetKeyDown(KeyCode.JoystickButton8))
+        {
+            Application.Quit();
+        }
+        if (Input.GetKeyDown(KeyCode.JoystickButton9))
+        {
+            LoadGame();
+        }
     }
     public void LoadGame()
     {
